@@ -16,3 +16,7 @@ body {
 input {
     margin: 10px;
 }
+#output {
+    color: white;
+    background-color: black;
+}
