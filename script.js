@@ -4,8 +4,8 @@ let tipPer;
 let people;
 let tip;
 let total;
-const outPut = document.getElementById('output');
-let submit = document.getElementById('submit')
+let outPut = document.getElementById('outPut');
+let submit = document.getElementById('submit');
 //global variables
 
 function calcTip(tipPer, subTotal){
@@ -13,24 +13,22 @@ function calcTip(tipPer, subTotal){
 };
 
 function withTip(tip, subTotal){
-    tip + subTotal;
+   total = tip + subTotal;
 };
 
 function perPerson(total, people){
-    total / people;
+    return total / people;
 };
 
 function getVal(){
     subTotal = document.getElementById("subTotal").value;
-    tipPer = document.getElementById('tipP').value;
+    tipPer = document.getElementById('tipPer').value;
     people = document.getElementById('totalPeople').value;
 };
+submit.addEventListener("click",final());
 
-let 
-submit.addEventListener("click", function(){
+function final(){
     getVal();
-    total = calcTip(tipPer, subTotal) + withTip(tip, subTotal);
     perPerson();
     outPut.innerHTML = '$ ' + perPerson(total, people);
-});
-
+};
