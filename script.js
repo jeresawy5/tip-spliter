@@ -1,7 +1,7 @@
 
-let subTotal = 200;
-let tipPer = 20;
-let people = 2;
+let subTotal;
+let tipPer;
+let people;
 let tip;
 let total;
 const outPut = document.getElementById('output');
@@ -19,16 +19,16 @@ function withTip(tip, subTotal){
 function perPerson(total, people){
     total / people;
 };
-/*
+
 function getVal(){
     subTotal = document.getElementById("subTotal").value;
     tipPer = document.getElementById('tipP').value;
     people = document.getElementById('totalPeople').value;
 };
-*/
+
 let 
 submit.addEventListener("click", function(){
-    //getVal();
+    getVal();
     total = calcTip(tipPer, subTotal) + withTip(tip, subTotal);
     perPerson();
     outPut.innerHTML = '$ ' + perPerson(total, people);
