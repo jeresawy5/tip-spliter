@@ -1,34 +1,37 @@
 
-let subTotal;
-let tipPer;
-let people;
-let tip;
-let total;
-let outPut = document.getElementById('outPut');
-let submit = document.getElementById('submit');
-//global variables
+let global_data = {
+    subTotal,
+    tipPer,
+    people: undefined,
+    tip: undefined,
+    total: undefined,
+    output: document.getElementById('output'),
+    submit: document.getElementById('submit'),
+}
 
 function calcTip(tipPer, subTotal){
-    tip = tipPer/100 * subTotal;
+    global_data.tip = tipPer/100 * subTotal;
 };
-
+    
 function withTip(tip, subTotal){
-   total = tip + subTotal;
+    global_data.total = tip + subTotal;
 };
-
+    
 function perPerson(total, people){
+    console.log(total, typeof total, people, typeof people);
     return total / people;
 };
 
 function getVal(){
-    subTotal = document.getElementById("subTotal").value;
-    tipPer = document.getElementById('tipPer').value;
-    people = document.getElementById('totalPeople').value;
+    global_data.subTotal = parseInt(document.getElementById("subTotal").value);
+    global_data.tipPer = parseInt(document.getElementById('tipPer').value);
+    global_data.people = parseInt(document.getElementById('totalPeople').value);
 };
-submit.addEventListener("click",final());
 
-function final(){
+function split_tip(){
     getVal();
-    perPerson();
-    outPut.innerHTML = '$ ' + perPerson(total, people);
+    calcTip(global_data.tipPer, global_data.subTotal);
+    withTip(global_data.tip, global_data.subTotal);
+    output.innerHTML = '$ ' + perPerson(global_data.total, global_data.people);
 };
+    submit.addEventListener("click",split_tip());
