@@ -19,4 +19,5 @@ input {
 #output {
     color: white;
     background-color: black;
+    font-size: 40px;
 }

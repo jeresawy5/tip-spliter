@@ -1,34 +1,36 @@
 
-let subTotal = 0;
-let tipPer = 0;
-let people = 0;
-let tip = 0;
-let total = 0;
-let outPut = document.getElementById('output');
-let submit = document.getElementById('submit');
+let subTotal = 200;
+let tipPer = 20;
+let people = 2;
+let tip;
+let total;
+const outPut = document.getElementById('output');
+let submit = document.getElementById('submit')
 //global variables
 
-
-const calcTip = () => {
-    tip = subTotal * tipPer;
+function calcTip(tipPer, subTotal){
+    tip = tipPer/100 * subTotal;
 };
 
-const withTip = () => {
+function withTip(tip, subTotal){
     tip + subTotal;
 };
 
-const perPerson = (total, people) => {
+function perPerson(total, people){
     total / people;
 };
-
-submit.addEventListener("click", final());
-
-function final(){
+/*
+function getVal(){
     subTotal = document.getElementById("subTotal").value;
     tipPer = document.getElementById('tipP').value;
     people = document.getElementById('totalPeople').value;
-    calcTip();
-    withTip();
-    perPerson();
-    outPut.innerHTML = perPerson;
 };
+*/
+let 
+submit.addEventListener("click", function(){
+    //getVal();
+    total = calcTip(tipPer, subTotal) + withTip(tip, subTotal);
+    perPerson();
+    outPut.innerHTML = '$ ' + perPerson(total, people);
+});
+
